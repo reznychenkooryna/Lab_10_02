@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 using namespace std;
 
@@ -28,10 +29,22 @@ struct StudentB {
     ThirdGrade grade;
 };
 
-// Рівень А
+// ------------------ Рівень А ------------------
 void CreateA(StudentA* p, int N);
 void PrintA(const StudentA* p, int N);
 
-// Рівень В
+// ------------------ Рівень В ------------------
 void CreateB(StudentB* p, int N);
 void PrintB(const StudentB* p, int N);
+
+// ------------------ Фізичне сортування ------------------
+void SortA_Physical(StudentA* p, int N);
+void SortB_Physical(StudentB* p, int N);
+
+// ------------------ Індексне сортування ------------------
+void SortA_Index(const StudentA* p, int N, int* index);
+void SortB_Index(const StudentB* p, int N, int* index);
+
+// ------------------ Бінарний пошук ------------------
+int BinarySearchA(const StudentA* p, int N, const string& key);
+int BinarySearchB(const StudentB* p, int N, const string& key);

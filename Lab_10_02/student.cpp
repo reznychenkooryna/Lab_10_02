@@ -1,10 +1,13 @@
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
 #include "student.h"
+
+using namespace std;
 
 string specialityStr[] = { "Комп'ютерні науки", "Інформатика", "Математика та економіка", "Фізика та інформатика", "Трудове навчання" };
 
-// Рівень А
+// ------------------ Рівень А ------------------
 void CreateA(StudentA* p, int N) {
     for (int i = 0; i < N; i++) {
         cout << "Студент №" << i + 1 << endl;
@@ -45,8 +48,7 @@ void PrintA(const StudentA* p, int N) {
     cout << "==========================================================================================================" << endl;
 }
 
-
-// Рівень В
+// ------------------ Рівень В ------------------
 void CreateB(StudentB* p, int N) {
     for (int i = 0; i < N; i++) {
         cout << "Студент №" << i + 1 << endl;
@@ -106,4 +108,55 @@ void PrintB(const StudentB* p, int N) {
     }
 
     cout << "===================================================================================================================================" << endl;
+}
+
+// ------------------ Фізичне сортування ------------------
+void SortA_Physical(StudentA* p, int N) {
+    std::sort(p, p + N, [](const StudentA& a, const StudentA& b) {
+        return a.surname < b.surname;
+        });
+}
+
+void SortB_Physical(StudentB* p, int N) {
+    std::sort(p, p + N, [](const StudentB& a, const StudentB& b) {
+        return a.surname < b.surname;
+        });
+}
+
+// ------------------ Індексне сортування ------------------
+void SortA_Index(const StudentA* p, int N, int* index) {
+    for (int i = 0; i < N; i++) index[i] = i;
+    std::sort(index, index + N, [p](int i1, int i2) {
+        return p[i1].surname < p[i2].surname;
+        });
+}
+
+void SortB_Index(const StudentB* p, int N, int* index) {
+    for (int i = 0; i < N; i++) index[i] = i;
+    std::sort(index, index + N, [p](int i1, int i2) {
+        return p[i1].surname < p[i2].surname;
+        });
+}
+
+// ------------------ Бінарний пошук ------------------
+int BinarySearchA(const StudentA* p, int N, const string& key) {
+    int left = 0, right = N - 1;
+    while (left <= right) {
+        int mid = (left + right) / 2;
+        if (p[mid].surname == key) return mid;
+        else if (p[mid].surname < key) left = mid + 1;
+        else right = mid - 1;
+    }
+    return -1;
+}
+
+int BinarySearchB(const StudentB* p, int N, const string& key) {
+    int left = 0, right = N - 1;
+    while (left <= right) {
+        int mid = (left + right) / 2;
+        if (p[mid].surname == key) return mid;
+        else if (p[mid].surname < key) left = mid + 1;
+        else right = mid - 1;
+    }
+    return -1;
 }
