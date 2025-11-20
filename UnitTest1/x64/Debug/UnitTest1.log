@@ -1,0 +1,8 @@
+﻿  pch.cpp
+  UnitTest1.cpp
+     Создается библиотека D:\Лабораторні роботи\Алгоритмізація та програмування\ЛР 10\Lab_10_02\x64\Debug\UnitTest1.lib и объект D:\Лабораторні роботи\Алгоритмізація та програмування\ЛР 10\Lab_10_02\x64\Debug\UnitTest1.exp
+UnitTest1.obj : error LNK2019: ссылка на неразрешенный внешний символ "void __cdecl CreateA(struct StudentA *,int)" (?CreateA@@YAXPEAUStudentA@@H@Z) в функции main.
+UnitTest1.obj : error LNK2019: ссылка на неразрешенный внешний символ "void __cdecl PrintA(struct StudentA const *,int)" (?PrintA@@YAXPEBUStudentA@@H@Z) в функции main.
+UnitTest1.obj : error LNK2019: ссылка на неразрешенный внешний символ "void __cdecl CreateB(struct StudentB *,int)" (?CreateB@@YAXPEAUStudentB@@H@Z) в функции main.
+UnitTest1.obj : error LNK2019: ссылка на неразрешенный внешний символ "void __cdecl PrintB(struct StudentB const *,int)" (?PrintB@@YAXPEBUStudentB@@H@Z) в функции main.
+D:\Лабораторні роботи\Алгоритмізація та програмування\ЛР 10\Lab_10_02\x64\Debug\UnitTest1.dll : fatal error LNK1120: неразрешенных внешних элементов: 4
